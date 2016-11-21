@@ -50,8 +50,8 @@ public class KeyboardLayoutReader {
 					//adiciona o model ao keyboardlayout
 					kl.setModel(eElement.getAttribute("model"));
 					
-					System.out.println("");
-					System.out.println(kl.getModel());
+					//System.out.println("");
+					//System.out.println(kl.getModel());
 
 					for (int i = 0; i < LINHAS_PADRAO; i++) {
 						
@@ -74,7 +74,7 @@ public class KeyboardLayoutReader {
 						}
 						//adiona um keyboardlayout a lista de layouts.
 						keylaylist.add(kl);
-						System.out.println(kl.getLines().get(i).getContent() + " offset :" +kl.getLines().get(i).getOffset() );
+						//System.out.println(kl.getLines().get(i).getContent() + " offset :" +kl.getLines().get(i).getOffset() );
 
 					}
 
