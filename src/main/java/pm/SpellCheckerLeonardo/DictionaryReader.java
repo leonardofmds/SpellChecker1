@@ -8,19 +8,37 @@ import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-public class DictionaryReader {
+public class DictionaryReader
+{
 
-	public BurkhardKellerTree loadFromFile(String string, IDistanceCalculator calculator) 
+	public static void main(String[] args)
+	{
+		DictionaryReader dr = new DictionaryReader();
+
+//		ArrayList<String> al = new ArrayList<String>();
+//		al = dr.loadFromFile(local);
+//
+//		for (int i = 0; i < al.size(); i++)
+//		{
+//			System.out.println(al.get(i));
+//		}
+	}
+
+	public BurkhardKellerTree loadFromFile(String string, IDistanceCalculator calculator)
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
-		
-	public ArrayList<String> loadFromFile(String string) 
-	{
-		ArrayList<String> palavras = new ArrayList<String>();
 
-		try {
+	public BurkhardKellerTree loadFromFile(String string)
+	{
+		string = "dictionary_pt-br.zip";
+		ArrayList<String> palavras = new ArrayList<String>();
+		
+		BurkhardKellerTree bktree = new BurkhardKellerTree();
+
+		try
+		{
 			ZipFile zf = new ZipFile(string);
 
 			ZipEntry entry = zf.entries().nextElement();
@@ -29,16 +47,20 @@ public class DictionaryReader {
 			InputStreamReader isr = new InputStreamReader(inputStream);
 			BufferedReader buffer = new BufferedReader(isr);
 			String linha;
-			while ((linha = buffer.readLine()) != null) {
+			while ((linha = buffer.readLine()) != null)
+			{
 				palavras.add(linha);
 			}
 			zf.close();
-		} catch (IOException e) {
+		} catch (IOException e)
+		{
 
 			e.printStackTrace();
 		}
-
-		return palavras;
+		
+		bktree.adicionaListaDeNo(palavras);
+		
+		return bktree;
 	}
 
 }

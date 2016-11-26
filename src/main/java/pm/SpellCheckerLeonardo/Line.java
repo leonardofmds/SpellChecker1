@@ -1,30 +1,34 @@
 package pm.SpellCheckerLeonardo;
 
-public class Line {
+public class Line
+{
 
 	private String content;
 	private double offset;
-	
+
 	public Line()
 	{
-		
+
 	}
 
-	public String getContent() {
+	public String getContent()
+	{
 		return content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(String content)
+	{
 		this.content = content;
 	}
 
-	public double getOffset() {
+	public double getOffset()
+	{
 		return offset;
 	}
 
-	public void setOffset(double offset) {
+	public void setOffset(double offset)
+	{
 		this.offset = offset;
 	}
-	
 
 }
