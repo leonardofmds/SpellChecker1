@@ -20,20 +20,22 @@ public class TestSpellChecker
 	{
 		layouts = new KeyboardLayoutReader().loadFromFile("data/keyboardlayouts.xml");
 		
-		//for (KeyboardLayout layout : layouts)
-			//layout.prepareDistances();
+		for(int i = 0; i < layouts.getList().size(); i++)
+		{
+			layouts.getList().get(i).prepareDistances();
+		}
 	}
 	
-	@Test
-	public void testLevenshteintTecladoNeutro()
-	{
-		KeyboardLayout layout = new KeyboardLayoutNeutro();
-		IDistanceCalculator calculator = new LevenshteinCalculator(layout);
-		BurkhardKellerTree tree = new DictionaryReader().loadFromFile("data/dictionary pt-br.zip");
-		
-		BurkhardKellerTreeSearchResult result1 = new BurkhardKellerTreeSearchResult();
-		result1 = tree.search("CASA", 1, 10);
-		check(result1, 0, "CASA", 0.0);		
+//	@Test
+//	public void testLevenshteintTecladoNeutro()
+//	{
+//		KeyboardLayout layout = new KeyboardLayoutList().;
+//		IDistanceCalculator calculator = new LevenshteinCalculator(layout);
+//		BurkhardKellerTree tree = new DictionaryReader().loadFromFile("data/dictionary pt-br.zip");
+//		
+//		BurkhardKellerTreeSearchResult result1 = new BurkhardKellerTreeSearchResult();
+//		result1 = tree.search("CASA", 1 , 10);
+//		check(result1, 0, "CASA", 0.0);		
 //		check(result1, 1, "asa", 1.0);
 //		check(result1, 2, "cas", 1.0);
 //		check(result1, 3, "casar", 1.0);
@@ -62,7 +64,7 @@ public class TestSpellChecker
 //		check(result3, 7, "alinea", 2.0);
 //		check(result3, 8, "ravina", 2.0);
 //		check(result3, 9, "vies", 2.0);
-	}
+//	}
 	
 //	@Test
 //	public void testDemerauTecladoNeutro()
@@ -103,49 +105,49 @@ public class TestSpellChecker
 //		check(result3, 9, "ravina", 2.0);
 //	}
 	
-//	@Test
-//	public void testLevenshteinTecladoQwerty()
-//	{
-//		KeyboardLayout layout = layouts.getLayoutByName("QWERTY");
-//		IDistanceCalculator calculator = new LevenshteinCalculator(layout);
-//		BurkhardKellerTree tree = new DictionaryReader().loadFromFile("data/dictionary pt-br.zip", calculator);
-//		
-//		BurkhardKellerTreeSearchResult result = tree.search("casa", 1, 10);
-//		check(result, 0, "casa", 0.0);
-//		check(result, 1, "cada", 0.11);
-//		check(result, 2, "caca", 0.20);
-//		check(result, 3, "cara", 0.20);
-//		check(result, 4, "fada", 0.23);
-//		check(result, 5, "vaza", 0.23);
-//		check(result, 6, "asa", 0.25);
-//		check(result, 7, "cas", 0.25);
-//		check(result, 8, "casal", 0.25);
-//		check(result, 9, "casar", 0.25);
-//		
-//		BurkhardKellerTreeSearchResult result2 = tree.search("cervega", 2, 10);
-//		check(result2, 0, "cerveja", 0.22);
-//		check(result2, 1, "cereja", 0.47);
-//		check(result2, 2, "xereta", 0.48);
-//		check(result2, 3, "verbete", 0.54);
-//		check(result2, 4, "careta", 0.57);
-//		check(result2, 5, "ferver", 0.57);
-//		check(result2, 6, "carreta", 0.57);
-//		check(result2, 7, "vereda", 0.58);
-//		check(result2, 8, "refrega", 0.59);
-//		check(result2, 9, "cerca", 0.61);
-//		
-//		BurkhardKellerTreeSearchResult result3 = tree.search("aviea", 2, 10);
-//		check(result3, 0, "acida", 0.23);
-//		check(result3, 1, "afora", 0.34);
-//		check(result3, 2, "agora", 0.34);
-//		check(result3, 3, "aries", 0.35);
-//		check(result3, 4, "aves", 0.36);
-//		check(result3, 5, "vira", 0.36);
-//		check(result3, 6, "vies", 0.36);
-//		check(result3, 7, "avioes", 0.36);
-//		check(result3, 8, "vida", 0.37);
-//		check(result3, 9, "avisar", 0.37);
-//	}
+	@Test
+	public void testLevenshteinTecladoQwerty()
+	{
+		KeyboardLayout layout = layouts.getLayoutByName("QWERTY");
+		IDistanceCalculator calculator = new LevenshteinCalculator(layout);
+		BurkhardKellerTree tree = new DictionaryReader().loadFromFile("dictionary_pt-br.zip", calculator);
+		
+		BurkhardKellerTreeSearchResult result = tree.search("casa", 1, 10);
+		check(result, 0, "casa", 0.0);
+		check(result, 1, "cada", 0.11);
+		check(result, 2, "caca", 0.20);
+		check(result, 3, "cara", 0.20);
+		check(result, 4, "fada", 0.23);
+		check(result, 5, "vaza", 0.23);
+		check(result, 6, "asa", 0.25);
+		check(result, 7, "cas", 0.25);
+		check(result, 8, "casal", 0.25);
+		check(result, 9, "casar", 0.25);
+		
+		BurkhardKellerTreeSearchResult result2 = tree.search("cervega", 2, 10);
+		check(result2, 0, "cerveja", 0.22);
+		check(result2, 1, "cereja", 0.47);
+		check(result2, 2, "xereta", 0.48);
+		check(result2, 3, "verbete", 0.54);
+		check(result2, 4, "careta", 0.57);
+		check(result2, 5, "ferver", 0.57);
+		check(result2, 6, "carreta", 0.57);
+		check(result2, 7, "vereda", 0.58);
+		check(result2, 8, "refrega", 0.59);
+		check(result2, 9, "cerca", 0.61);
+		
+		BurkhardKellerTreeSearchResult result3 = tree.search("aviea", 2, 10);
+		check(result3, 0, "acida", 0.23);
+		check(result3, 1, "afora", 0.34);
+		check(result3, 2, "agora", 0.34);
+		check(result3, 3, "aries", 0.35);
+		check(result3, 4, "aves", 0.36);
+		check(result3, 5, "vira", 0.36);
+		check(result3, 6, "vies", 0.36);
+		check(result3, 7, "avioes", 0.36);
+		check(result3, 8, "vida", 0.37);
+		check(result3, 9, "avisar", 0.37);
+	}
 	
 //	@Test
 //	public void testDemerauTecladoQwerty()

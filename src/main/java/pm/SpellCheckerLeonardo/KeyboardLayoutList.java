@@ -6,7 +6,7 @@ import java.util.List;
 
 import pm.SpellCheckerLeonardo.*;;
 
-public class KeyboardLayoutList
+public class KeyboardLayoutList implements Iterable
 {
 
 	private List<KeyboardLayout> layouts;

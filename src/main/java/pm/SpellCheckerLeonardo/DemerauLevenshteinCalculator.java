@@ -8,7 +8,7 @@ public class DemerauLevenshteinCalculator implements IDistanceCalculator
 		// TODO Auto-generated constructor stub
 	}
 
-	public int distance(String word1, String word2)
+	public double distance(String word1, String word2)
 	{
 		// TODO Auto-generated method stub
 		return 0;

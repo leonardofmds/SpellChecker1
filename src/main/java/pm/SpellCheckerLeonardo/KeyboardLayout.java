@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 import pm.SpellCheckerLeonardo.*;
 
-public class KeyboardLayout implements Iterable
+public class KeyboardLayout
 {
 
 	private String model;
@@ -159,7 +159,7 @@ public class KeyboardLayout implements Iterable
 		double value = 0.25;
 		
 		double allOffsets = getAllOffSets(lines.size()-1);
-		System.out.println(allOffsets);
+		//System.out.println(allOffsets);
 		
 		if(allOffsets==0)
 		{

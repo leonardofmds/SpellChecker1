@@ -22,7 +22,7 @@ public class App
 //    	
 //    	System.out.println(bktree.busca("A",1).get(21));    	
 //    
-//    	KeyboardLayout layout = new KeyboardLayoutNeutro();
+
 //		IDistanceCalculator calculator = new LevenshteinCalculator(layout);
 //		BurkhardKellerTree tree = new DictionaryReader().loadFromFile("data/dictionary pt-br.zip");
 //		
@@ -30,6 +30,10 @@ public class App
 //		result1 = tree.search("casa", 0, 0);
 		
 		//System.out.println(result1.getWord(0));
+    	
+    	KeyboardLayoutList layouts = new KeyboardLayoutReader().loadFromFile("");
+    	LevenshteinCalculator lc = new LevenshteinCalculator(layouts.getLayoutByName("QWERTY"));
+    	System.out.println(lc.distance("casa", "caca"));
     
     
     

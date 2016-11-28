@@ -28,6 +28,38 @@ public class Node
 	{
 		filhos.put(posicao, noFilho);
 	}
+	
+//	public Map buscaHash(String no, int distanciaMaxima)
+//	{
+//		List<String> palavrasCompativeis = new ArrayList<String>();
+//		LevenshteinCalculator levenshteinCalculator = new LevenshteinCalculator(new KeyboardLayout());
+//		
+//		Map hash = new Hashtable();
+//
+//		int distanciaLevenshtein = levenshteinCalculator.computeLevenshteinDistance(palavra, no);
+//		if (distanciaLevenshtein <= distanciaMaxima)
+//		{
+//			//palavrasCompativeis.add(palavra);
+//			hash.put(palavra, distanciaLevenshtein);
+//		}
+//
+//		if (filhos.size() == 0)
+//		{
+//			return hash;
+//		}
+//		
+//		for (int i = Math.max(1, distanciaLevenshtein - distanciaMaxima); i <= distanciaLevenshtein
+//				+ distanciaMaxima; i++)
+//		{
+//
+//			Node filho = filhos.get(i);
+//			if (filho != null)
+//			{
+//				palavrasCompativeis.addAll(filho.busca(no, distanciaMaxima));
+//			}
+//		}
+//		return palavrasCompativeis;
+//	}
 
 	public List<String> busca(String no, int distanciaMaxima)
 	{
@@ -36,7 +68,7 @@ public class Node
 
 		LevenshteinCalculator levenshteinCalculator = new LevenshteinCalculator(new KeyboardLayout());
 
-		int distanciaLevenshtein = levenshteinCalculator.computeLevenshteinDistance(palavra, no);
+		int distanciaLevenshtein = (int)levenshteinCalculator.distance(palavra, no);
 		if (distanciaLevenshtein <= distanciaMaxima)
 		{
 			palavrasCompativeis.add(palavra);
@@ -65,7 +97,7 @@ public class Node
 		List<String> palavrasCompativeis = new ArrayList<String>();
 		LevenshteinCalculator levenshteinCalculator = new LevenshteinCalculator(layout);
 
-		int distanciaLevenshtein = levenshteinCalculator.computeLevenshteinDistance(palavra, no);
+		int distanciaLevenshtein = (int)levenshteinCalculator.distance(palavra, no);
 		if (distanciaLevenshtein <= distanciaMaxima)
 		{
 			palavrasCompativeis.add(palavra);

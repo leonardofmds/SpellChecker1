@@ -1,11 +1,13 @@
 package pm.SpellCheckerLeonardo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BurkhardKellerTreeSearchResult
 {
-	List<String> result = new ArrayList<String>();
+	private List<String> listaPalavras;
 	
 	public BurkhardKellerTreeSearchResult()
 	{
@@ -14,7 +16,7 @@ public class BurkhardKellerTreeSearchResult
 	public BurkhardKellerTreeSearchResult(List<String> listaDePalavrasCompativeis)
 	{
 		// TODO Auto-generated constructor stub
-		result = listaDePalavrasCompativeis;
+		//bktree.adicionaListaDeNo(listaDePalavrasCompativeis);
 	}	
 
 	public Object getWord(int position)
@@ -22,7 +24,9 @@ public class BurkhardKellerTreeSearchResult
 		// TODO Auto-generated method stub
 		//return null;
 		
-		return result.get(position);
+		//bktree.busca(str, distanciaMaximaPermitida)
+		
+		return null;
 		
 	}
 

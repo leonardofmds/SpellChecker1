@@ -2,15 +2,20 @@ package pm.SpellCheckerLeonardo;
 
 public class LevenshteinCalculator implements IDistanceCalculator
 {
+	KeyboardLayout keyboardLayout;
+	
 
-	private static int minimum(int a, int b, int c)
+	private static double minimum(double a, double b, double c)
 	{
 		return Math.min(Math.min(a, b), c);
 	}
 
-	public int computeLevenshteinDistance(CharSequence lhs, CharSequence rhs)
+	public double distance(String s1, String s2)
 	{
-		int[][] distance = new int[lhs.length() + 1][rhs.length() + 1];
+		CharSequence lhs = s1;
+		CharSequence rhs = s2;
+		
+		double[][] distance = new double[lhs.length() + 1][rhs.length() + 1];
 
 		for (int i = 0; i <= lhs.length(); i++)
 			distance[i][0] = i;
@@ -19,10 +24,11 @@ public class LevenshteinCalculator implements IDistanceCalculator
 
 		for (int i = 1; i <= lhs.length(); i++)
 			for (int j = 1; j <= rhs.length(); j++)
-				distance[i][j] = minimum(distance[i - 1][j] + 1, distance[i][j - 1] + 1,
-						distance[i - 1][j - 1] + ((lhs.charAt(i - 1) == rhs.charAt(j - 1)) ? 0 : 1));
-
-		return distance[lhs.length()][rhs.length()];
+				distance[i][j] = minimum(distance[i - 1][j] + keyboardLayout.getInsertDeleteDistance(), distance[i][j - 1] + keyboardLayout.getInsertDeleteDistance(),
+						distance[i - 1][j - 1] + ((lhs.charAt(i - 1) == rhs.charAt(j - 1)) ? 0 
+								: keyboardLayout.getNominalDistance(lhs.charAt(i - 1), rhs.charAt(j - 1))));
+				
+		return (distance[lhs.length()][rhs.length()])*100;
 	}
 
 	public LevenshteinCalculator()
@@ -32,12 +38,12 @@ public class LevenshteinCalculator implements IDistanceCalculator
 
 	public LevenshteinCalculator(KeyboardLayout kl)
 	{
-
+		keyboardLayout = kl;
 	}
 
-	public int distance(String word1, String word2)
-	{
-		return 0;
-
-	}
+//	public int distance(String word1, String word2)
+//	{
+//		return 0;
+//
+//	}
 }

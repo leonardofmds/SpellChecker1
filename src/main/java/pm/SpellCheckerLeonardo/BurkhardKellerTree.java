@@ -18,22 +18,28 @@ public class BurkhardKellerTree
 	{
 		return raiz.busca(str.toUpperCase(), distanciaMaximaPermitida, new KeyboardLayout());
 	}
+	public BurkhardKellerTree()
+	{
+		
+	}
+	public BurkhardKellerTree(Node root)
+	{
+		raiz = root;
+	}
 
 	/**
 	 * Devolve a arvore resultado da busca
 	 */
+	
+	public Node getRaiz()
+	{
+		return raiz;
+	}
 	public BurkhardKellerTreeSearchResult search(String string, int i, int j)
 	{
-		// TODO Auto-generated method stub
-		//return null;
-		
-		List<String> listaDePalavrasCompativeis = new ArrayList<String>();
-		
-		listaDePalavrasCompativeis = raiz.busca(string.toUpperCase(), i, new KeyboardLayout());
-		
-		BurkhardKellerTreeSearchResult bktree = new BurkhardKellerTreeSearchResult(listaDePalavrasCompativeis);
-		//bktree.adicionaListaDeNo(listaDePalavrasCompativeis);	
-		return bktree;
+			
+		BurkhardKellerTreeSearchResult bktreesearchresult = new BurkhardKellerTreeSearchResult();
+		return null;
 	}
 
 	/**
@@ -80,7 +86,7 @@ public class BurkhardKellerTree
 
 		LevenshteinCalculator levenshteinCalculator = new LevenshteinCalculator(new KeyboardLayout());
 
-		int distancia = levenshteinCalculator.computeLevenshteinDistance(srcNode.getPalavra(), novoNo.getPalavra());
+		int distancia = (int)levenshteinCalculator.distance(srcNode.getPalavra(), novoNo.getPalavra());
 
 		Node bkNode = srcNode.filhosNumaDistancia(distancia);
 
