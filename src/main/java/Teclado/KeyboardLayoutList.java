@@ -5,7 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import pm.SpellCheckerLeonardo.*;;
-
+/**
+ * Uma lista de KeyboardLayouts
+ * @author suporte
+ *
+ */
 public class KeyboardLayoutList 
 {
 

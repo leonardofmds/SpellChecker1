@@ -2,7 +2,11 @@ package Teclado;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
+/**
+ * KeyboardLayout neutro onde as distacias entre as teclas são sempre 1 e os valores de inserção, remoção e distância relativa são sempre 1.
+ * @author suporte
+ *
+ */
 public class KeyboardLayoutNeutro extends KeyboardLayout
 {
 	public KeyboardLayoutNeutro()

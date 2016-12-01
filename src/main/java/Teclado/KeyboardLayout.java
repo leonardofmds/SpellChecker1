@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import pm.SpellCheckerLeonardo.*;
-
+/**
+ * Representa um layout de teclado, seu modelo, suas linha de teclado.
+ * @author suporte
+ *
+ */
 public class KeyboardLayout
 {
 

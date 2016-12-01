@@ -1,5 +1,10 @@
 package Teclado;
-
+/**
+ * Linha implementada pelo KeyboardLayout, ela armazena o conteúdo da linha (os chars das teclas) em -content-.
+ * E o deslocamento lateral delas - offset -
+ * @author suporte
+ *
+ */
 public class Line
 {
 

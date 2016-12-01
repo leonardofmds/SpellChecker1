@@ -10,7 +10,11 @@ import java.util.zip.ZipFile;
 
 import Arvore.BurkhardKellerTree;
 import Calculos.IDistanceCalculator;
-
+/**
+ * Lê o conteúdo de um arquivo zip que contêm um dicionário de palavras e os adiciona em uma BK Tree.
+ * @author suporte
+ *
+ */
 public class DictionaryReader
 {
 
@@ -21,7 +25,6 @@ public class DictionaryReader
 
 	public BurkhardKellerTree loadFromFile(String string,IDistanceCalculator calculator)
 	{
-		string = "dictionary_pt-br.zip";
 		ArrayList<String> palavras = new ArrayList<String>();
 		
 		BurkhardKellerTree bktree = new BurkhardKellerTree(calculator);

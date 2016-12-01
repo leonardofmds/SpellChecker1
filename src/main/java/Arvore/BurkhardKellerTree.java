@@ -6,10 +6,15 @@ import java.util.List;
 import Calculos.IDistanceCalculator;
 import Calculos.LevenshteinCalculator;
 import Teclado.KeyboardLayout;
-
+/**
+ * Implementa um objeto Node e uma Interface IDistanceCalculator
+ * É responsavel por estruturar os dados de um dicionário e as distancias entre as palavras seguindo uma métrica
+ * com o calculo de Leveinshtein ou Damerau-Leveinshtein
+ * @author suporte
+ *
+ */
 public class BurkhardKellerTree
 {
-
 	private Node raiz;
 
 	private IDistanceCalculator calculator;

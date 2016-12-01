@@ -8,7 +8,11 @@ import java.util.Map;
 import Calculos.IDistanceCalculator;
 import Calculos.LevenshteinCalculator;
 import Teclado.KeyboardLayout;
-
+/**
+ * Estrutura No que implementa uma String Palavra e uma hashmap que servirá para armazenar os filhos desse nó nas chaves de respectivas distâncias da palavra do nó pai.
+ * @author suporte
+ *
+ */
 public class Node
 {
 	private final String palavra;

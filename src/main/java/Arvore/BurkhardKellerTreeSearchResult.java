@@ -5,7 +5,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * É responsavel por armazenar a busca dos resultados compatíveis de uma palavra dentro de uma distancia feita em uma árvore BK
+ * @author suporte
+ *
+ */
 public class BurkhardKellerTreeSearchResult
 {
 	private List<PalavraDistancia> listaPalavras;

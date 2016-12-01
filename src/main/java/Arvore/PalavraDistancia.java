@@ -1,5 +1,9 @@
 package Arvore;
-
+/**
+ * Modelo utilizado como elementos de uma lista na BurkhardKellerTreeSearchResult para armazenar a palavra e a distância da palavra buscadas na BK Tree 
+ * @author suporte
+ *
+ */
 public class PalavraDistancia implements Comparable<PalavraDistancia>
 {
 	private String Palavra;

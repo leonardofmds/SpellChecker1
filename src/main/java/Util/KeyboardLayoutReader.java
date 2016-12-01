@@ -12,7 +12,11 @@ import Teclado.Line;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
-
+/**
+ * Lê o arquivo xml que contêm o layout dos teclados.
+ * @author suporte
+ *
+ */
 public class KeyboardLayoutReader
 {
 
@@ -25,9 +29,6 @@ public class KeyboardLayoutReader
 
 	public static KeyboardLayoutList loadFromFile(String string)
 	{
-
-		string = "KeyboardLayouts.xml";
-
 		// cria uma instância de keyboardlayoutlist que é uma lista de layouts
 		KeyboardLayoutList keylaylist = new KeyboardLayoutList();
 

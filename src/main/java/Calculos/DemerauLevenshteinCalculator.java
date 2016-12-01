@@ -1,7 +1,11 @@
 package Calculos;
 
 import Teclado.KeyboardLayout;
-
+/**
+ * Implementada para calcular a distancia entre palavras usando o algoritmo de Damerau-Leveinstein
+ * @author suporte
+ *
+ */
 public class DemerauLevenshteinCalculator implements IDistanceCalculator
 {
 

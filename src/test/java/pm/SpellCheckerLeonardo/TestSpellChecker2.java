@@ -19,8 +19,7 @@ public class TestSpellChecker2 {
 
 	@BeforeClass
 	public static void setup() {
-		layouts = new KeyboardLayoutReader().loadFromFile("layouts.xml");
-
+		layouts = new KeyboardLayoutReader().loadFromFile("KeyboardLayouts.xml");
 	}
 
 	@Test
