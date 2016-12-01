@@ -41,6 +41,9 @@ public class DictionaryReader
 			String linha;
 			while ((linha = buffer.readLine()) != null)
 			{
+				linha = linha.replace("'", "");
+				linha = linha.replace("-", "");
+				linha = linha.replace(".", "");
 				palavras.add(linha);
 			}
 			zf.close();

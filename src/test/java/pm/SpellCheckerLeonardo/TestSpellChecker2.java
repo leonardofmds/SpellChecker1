@@ -12,7 +12,11 @@ import Teclado.KeyboardLayout;
 import Teclado.KeyboardLayoutList;
 import Teclado.KeyboardLayoutNeutro;
 import Util.KeyboardLayoutReader;
-
+/**
+ * Casos de teste verificador das distancias entre as palavras usando Leveinshtein e Damerau-Leveinshtein
+ * @author suporte
+ *
+ */
 public class TestSpellChecker2 {
 
 	private static KeyboardLayoutList layouts;

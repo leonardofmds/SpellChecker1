@@ -1,7 +1,11 @@
 package Calculos;
 
 import Teclado.KeyboardLayout;
-
+/**
+ * Implementada para calcular a distancia entre palavras usando o algoritmo de Leveinstein
+ * @author suporte
+ *
+ */
 public class LevenshteinCalculator implements IDistanceCalculator
 {
 	KeyboardLayout keyboardLayout = new KeyboardLayout();

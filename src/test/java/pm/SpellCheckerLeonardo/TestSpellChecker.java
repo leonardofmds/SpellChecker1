@@ -213,8 +213,8 @@ public class TestSpellChecker
 		
 		BurkhardKellerTreeSearchResult result3 = tree.search("aviea", 2, 10);
 		check(result3, 0, "acida", 0.23);
-		check(result3, 1, "afora", 0.34);
-		check(result3, 2, "agora", 0.34);
+		check(result3, 1, "agora", 0.34);
+		check(result3, 2, "afora", 0.34);
 		check(result3, 3, "aries", 0.35);
 		check(result3, 4, "aves", 0.36);
 //		check(result3, 5, "vira", 0.36);
@@ -259,8 +259,8 @@ public class TestSpellChecker
 		BurkhardKellerTreeSearchResult result3 = tree.search("aviea", 2, 10);
 		check(result3, 0, "acida", 0.23);
 //		check(result3, 1, "aveia", 0.25);
-		check(result3, 1, "afora", 0.34);
-		check(result3, 2, "agora", 0.34);
+		check(result3, 1, "agora", 0.34);
+		check(result3, 2, "afora", 0.34);
 		check(result3, 3, "aries", 0.35);
 		check(result3, 4, "aves", 0.36);
 		check(result3, 5, "avioes", 0.36);		
@@ -283,17 +283,17 @@ public class TestSpellChecker
 		
 		BurkhardKellerTreeSearchResult result = tree.search("casa", 1, 10);
 		check(result, 0, "casa", 0.0);
-		check(result, 1, "caso", 0.11);
-		check(result, 2, "cana", 0.11);
+		check(result, 1, "cana", 0.11);
+		check(result, 2, "caso", 0.11);
 		check(result, 3, "cara", 0.15);
 		check(result, 4, "nasa", 0.15);
 		check(result, 5, "gana", 0.22);
 		check(result, 6, "gala", 0.22);
-		check(result, 7, "cano", 0.22);
-//		check(result, 8, "tala", 0.22);
-		check(result, 8, "calo", 0.22);
+		check(result, 7, "tala", 0.22);
+		check(result, 8, "cano", 0.22);
+		check(result, 9, "calo", 0.22);
 //		check(result, 9, "tosa", 0.22);
-		check(result, 9, "tala", 0.22);
+//		check(result, 9, "tala", 0.22);
 		
 		BurkhardKellerTreeSearchResult result2 = tree.search("cervega", 2, 10);
 		check(result2, 0, "corveta", 0.26);
