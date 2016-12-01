@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import Calculos.DemerauLevenshteinCalculator;
 import Calculos.IDistanceCalculator;
 import Calculos.LevenshteinCalculator;
 import Teclado.KeyboardLayout;
@@ -47,29 +48,29 @@ public class TestSpellChecker2 {
 
 	}
 
-//	@Test
-//	public void testDemerauTecladoNeutro() {
-//		KeyboardLayout layout = new KeyboardLayoutNeutro();
-//		layout.prepareDistances();
-//		IDistanceCalculator calculator = new DemerauLevenshteinCalculator(layout);
-//
-//		assertEquals(0.0, calculator.distance("casa", "casa"), 0.01);
-//		assertEquals(1.0, calculator.distance("casa", "asa"), 0.01);
-//		assertEquals(1.0, calculator.distance("casa", "cas"), 0.01);
-//		assertEquals(1.0, calculator.distance("casa", "casar"), 0.01);
-//		assertEquals(1.0, calculator.distance("casa", "casal"), 0.01);
-//		assertEquals(1.0, calculator.distance("casa", "causa"), 0.01);
-//		assertEquals(1.0, calculator.distance("casa", "casba"), 0.01);
-//		assertEquals(1.0, calculator.distance("casa", "casca"), 0.01);
-//		assertEquals(1.0, calculator.distance("casa", "casta"), 0.01);
-//		assertEquals(1.0, calculator.distance("casa", "caca"), 0.01);
-//
-//		assertEquals(1.0, calculator.distance("cervega", "cerveja"), 0.01);
-//		assertEquals(2.0, calculator.distance("cervega", "cereja"), 0.01);
-//		assertEquals(2.0, calculator.distance("cervega", "cereja"), 0.01);
-//		assertEquals(3.0, calculator.distance("cervega", "xereta"), 0.01);
-//
-//	}
+	@Test
+	public void testDemerauTecladoNeutro() {
+		KeyboardLayout layout = new KeyboardLayoutNeutro();
+		layout.prepareDistances();
+		IDistanceCalculator calculator = new DemerauLevenshteinCalculator(layout);
+
+		assertEquals(0.0, calculator.distance("casa", "casa"), 0.01);
+		assertEquals(1.0, calculator.distance("casa", "asa"), 0.01);
+		assertEquals(1.0, calculator.distance("casa", "cas"), 0.01);
+		assertEquals(1.0, calculator.distance("casa", "casar"), 0.01);
+		assertEquals(1.0, calculator.distance("casa", "casal"), 0.01);
+		assertEquals(1.0, calculator.distance("casa", "causa"), 0.01);
+		assertEquals(1.0, calculator.distance("casa", "casba"), 0.01);
+		assertEquals(1.0, calculator.distance("casa", "casca"), 0.01);
+		assertEquals(1.0, calculator.distance("casa", "casta"), 0.01);
+		assertEquals(1.0, calculator.distance("casa", "caca"), 0.01);
+
+		assertEquals(1.0, calculator.distance("cervega", "cerveja"), 0.01);
+		assertEquals(2.0, calculator.distance("cervega", "cereja"), 0.01);
+		assertEquals(2.0, calculator.distance("cervega", "cereja"), 0.01);
+		assertEquals(3.0, calculator.distance("cervega", "xereta"), 0.01);
+
+	}
 
 	@Test
 	public void testLevenshteinTecladoQwerty() 
@@ -141,6 +142,8 @@ public class TestSpellChecker2 {
 		assertEquals(0.51, calculator.distance("cervega", "centena"), 0.01);
 		assertEquals(0.55, calculator.distance("cervega", "ternura"), 0.01);
 	}
+	
+	
 	
 	
 	

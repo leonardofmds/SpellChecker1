@@ -20,14 +20,7 @@ public class LevenshteinCalculator implements IDistanceCalculator
 	{
 		CharSequence lhs = s1;
 		CharSequence rhs = s2; 
-		
-		double multiplier;
-		
-		if(!keyboardLayout.isNeutro())
-			multiplier = 100;
-		else
-			multiplier = 1;
-		
+				
 		double[][] distance = new double[lhs.length() + 1][rhs.length() + 1];
 
 		for (int i = 0; i <= lhs.length(); i++)

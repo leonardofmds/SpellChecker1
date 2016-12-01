@@ -2,9 +2,15 @@ package Arvore;
 
 public class PalavraDistancia implements Comparable<PalavraDistancia>
 {
-	String Palavra;
-	double Distancia;
-
+	private String Palavra;
+	private double Distancia;
+	
+	public PalavraDistancia(String palavra, double distancia)
+	{
+		this.Palavra = palavra;
+		this.Distancia = distancia;
+	}
+	
 	public String getPalavra()
 	{
 		return Palavra;
@@ -23,12 +29,6 @@ public class PalavraDistancia implements Comparable<PalavraDistancia>
 	public void setDistancia(double distancia)
 	{
 		Distancia = distancia;
-	}
-
-	public PalavraDistancia(String palavra, double distancia)
-	{
-		this.Palavra = palavra;
-		this.Distancia = distancia;
 	}
 
 	public int compareTo(PalavraDistancia outraPalavra)

@@ -16,12 +16,10 @@ public class BurkhardKellerTreeSearchResult
 		Collections.sort(listaPalavras);
 		for(int i = 0; i< listaDePalavrasCompativeis.size();i++)
 		{
-			if(listaDePalavrasCompativeis.get(i).getDistancia()<0.3)
+			if(listaDePalavrasCompativeis.get(i).getDistancia()<0.63)
 			System.out.println(listaDePalavrasCompativeis.get(i).getPalavra()+" "+listaDePalavrasCompativeis.get(i).getDistancia());
 		}
-		System.out.println(listaDePalavrasCompativeis.size());
-		
-		
+		System.out.println(listaDePalavrasCompativeis.size());		
 	}	
 
 	public Object getWord(int position)
@@ -33,6 +31,26 @@ public class BurkhardKellerTreeSearchResult
 	public double getDistance(int position)
 	{
 		return listaPalavras.get(position).getDistancia();
+	}
+	
+	public String findWord(String word)
+	{
+		for (PalavraDistancia palavraDistancia : listaPalavras)
+		{
+			if(palavraDistancia.getPalavra().equals(word))
+				return word;
+		}
+		return null;
+	}
+	
+	public double getPalavraDistancia(String word)
+	{
+		for (PalavraDistancia palavraDistancia : listaPalavras)
+		{
+			if(palavraDistancia.getPalavra().equals(word))
+				return palavraDistancia.getDistancia();
+		}
+		return -1;
 	}
 
 }

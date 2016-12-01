@@ -93,6 +93,8 @@ public class BurkhardKellerTree
 	 */
 	private void adiciona(Node srcNode, Node novoNo)
 	{
+		double modifier = 1;
+		
 		if (srcNode.equals(novoNo))
 		{
 			return;
@@ -100,7 +102,9 @@ public class BurkhardKellerTree
 
 		double distancia = calculator.distance(srcNode.getPalavra(), novoNo.getPalavra());
 		if(calculator.getKeyboardLayout().isNeutro()==false)
-			distancia = distancia*100;
+			modifier = 100;
+		
+			distancia = distancia*modifier;
 		
 		Node bkNode = srcNode.filhosNumaDistancia((int)distancia);
 
