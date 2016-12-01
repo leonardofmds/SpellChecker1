@@ -1,9 +1,14 @@
-package pm.SpellCheckerLeonardo;
+package Util;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+
+import Teclado.KeyboardLayout;
+import Teclado.KeyboardLayoutList;
+import Teclado.Line;
+
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
@@ -52,21 +57,18 @@ public class KeyboardLayoutReader
 
 					Element eElement = (Element) nNode;
 
-					// adiciona o model ao keyboardlayout
+					// adiciona o model ao KeyboardLayout
 					kl.setModel(eElement.getAttribute("model"));
-
-					// System.out.println("");
-					// System.out.println(kl.getModel());
 
 					for (int i = 0; i < LINHAS_PADRAO; i++)
 					{
-
 						Line line = new Line();
-
+						//armazena o conteúdo das letras da linha do layout do xml numa string
 						String content = eElement.getElementsByTagName("line").item(i).getTextContent();
 						line.setContent(content);
 						kl.addLine(line);
-
+						
+						//busca o atributo offset da linha e armazena
 						String offset = ""
 								+ eElement.getElementsByTagName("line").item(i).getAttributes().getNamedItem("offset");
 

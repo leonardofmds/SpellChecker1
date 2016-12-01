@@ -2,6 +2,10 @@ package pm.SpellCheckerLeonardo;
 
 import java.util.ArrayList;
 
+import Calculos.LevenshteinCalculator;
+import Teclado.KeyboardLayoutList;
+import Util.KeyboardLayoutReader;
+
 /**
  * Hello world!
  *

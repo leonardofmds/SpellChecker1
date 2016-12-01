@@ -1,4 +1,4 @@
-package pm.SpellCheckerLeonardo;
+package Teclado;
 
 public class Line
 {

@@ -6,6 +6,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import Teclado.KeyboardLayout;
+import Teclado.KeyboardLayoutList;
+import Util.KeyboardLayoutReader;
+
 /**
  * Casos de teste para a distância entre teclas em modelos de teclado
  * 
@@ -73,6 +77,8 @@ public class TestKeyboardDistances
 		assertEquals(dist(0.5, 1), layout.getNominalDistance('g', 't'), 0.001);
 		assertEquals(dist(1.5, 1), layout.getNominalDistance('a', 'e'), 0.001);
 		assertEquals(dist(1.0, 0), layout.getNominalDistance('b', 'v'), 0.001);
+		
+		System.out.println(layout.getNominalDistance('c', 'a'));
 
 		assertEquals(0.25, layout.getInsertDeleteDistance(), 0.001);
 		assertEquals(dist(9.0, 0), layout.getMaximumDistance(), 0.001);

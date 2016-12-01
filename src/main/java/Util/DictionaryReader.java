@@ -1,4 +1,4 @@
-package pm.SpellCheckerLeonardo;
+package Util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,34 +8,23 @@ import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+import Arvore.BurkhardKellerTree;
+import Calculos.IDistanceCalculator;
+
 public class DictionaryReader
 {
 
 	public static void main(String[] args)
 	{
 		DictionaryReader dr = new DictionaryReader();
-
-//		ArrayList<String> al = new ArrayList<String>();
-//		al = dr.loadFromFile(local);
-//
-//		for (int i = 0; i < al.size(); i++)
-//		{
-//			System.out.println(al.get(i));
-//		}
 	}
 
-	public BurkhardKellerTree loadFromFile(String string, IDistanceCalculator calculator)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public BurkhardKellerTree loadFromFile(String string)
+	public BurkhardKellerTree loadFromFile(String string,IDistanceCalculator calculator)
 	{
 		string = "dictionary_pt-br.zip";
 		ArrayList<String> palavras = new ArrayList<String>();
 		
-		BurkhardKellerTree bktree = new BurkhardKellerTree();
+		BurkhardKellerTree bktree = new BurkhardKellerTree(calculator);
 
 		try
 		{

@@ -1,4 +1,4 @@
-package pm.SpellCheckerLeonardo;
+package Teclado;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -14,16 +14,23 @@ public class KeyboardLayout
 
 	int largura = 0;
 	int altura;
+	
+	double maxDistance;
 
 	char teclasMatrix[][];
-	final int ALPHABETSIZE = 26;
-	double distanciasMatrix[][];
 
 	public KeyboardLayout()
 	{
 		lines = new ArrayList<Line>();
 	}
-
+	
+	public boolean isNeutro()
+	{
+		return false;
+	}
+	/**
+	 * prepara uma matriz que representa a disposição das teclas de um teclado e cada uma de suas letras
+	 */
 	public void prepareKeysMatrix()
 	{
 		largura = 0;
@@ -33,7 +40,6 @@ public class KeyboardLayout
 		{
 			if (largura < lines.get(i).getContent().length())
 				largura = lines.get(i).getContent().length();
-
 		}
 
 		teclasMatrix = new char[largura][altura];
@@ -50,20 +56,14 @@ public class KeyboardLayout
 				}
 			}
 		}
-	}
 
+	}
 	public void prepareDistances()
 	{
-		// TODO Auto-generated method stub
 		prepareKeysMatrix();
+		maxDistance = getMaximumDistance();
 	}
-
-	public Iterator iterator()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	public String getModel()
 	{
 		return model;
@@ -88,7 +88,11 @@ public class KeyboardLayout
 	{
 		lines.add(line);
 	}
-
+	/**
+	 * utilizado para ajudar no calculo da distância quando são comparadas linhas não vizinhas, somando os offsets de cada linha entre elas
+	 * @param n numero de linhas do teclado
+	 * @return
+	 */
 	public Double getAllOffSets(int n)
 	{
 		double offsetSum = 0;
@@ -100,28 +104,30 @@ public class KeyboardLayout
 
 		return offsetSum;
 	}
-
+	/**
+	 * utiliza a matriz montada no prepare distances para calcular a distância entre pontos utilizando suas coordenadas e os offsets(quando houver)
+	 * @param c primeira tecla a ser comparada
+	 * @param d segunda tecla a ser comparada
+	 * @return
+	 */
 	public double getNominalDistance(char c, char d)
 	{
 		c = Character.toUpperCase(c);
 		d = Character.toUpperCase(d);
-		// TODO Auto-generated method stub
+
 		double cX = 0, cY = 0, dX = 0, dY = 0;
 
 		for (int j = 0; j < altura; j++)
 		{
 			for (int i = 0; i < largura; i++)
 			{
-				// System.out.println(teclasMatrix[i][j]);
 				if ((teclasMatrix[i][j]) == (c))
 				{
-					// System.out.println(teclasMatrix[i][j]);
 					cX = i + getAllOffSets(j);
 					cY = j;
 				}
 				if ((teclasMatrix[i][j]) == (d))
 				{
-					// System.out.println(teclasMatrix[i][j]);
 					dX = i + getAllOffSets(j);
 					dY = j;
 				}
@@ -129,11 +135,6 @@ public class KeyboardLayout
 			}
 
 		}
-
-		// System.out.println(cX +" "+ cY+ " "+ dX+ " "+ dY);
-
-		// x = x + lines.get((int)y).getOffset();
-		// System.out.println(x);
 
 		double difX;
 		double difY;
@@ -155,23 +156,17 @@ public class KeyboardLayout
 
 	public double getInsertDeleteDistance()
 	{
-		// TODO Auto-generated method stub
 		double value = 0.25;
-		
-		double allOffsets = getAllOffSets(lines.size()-1);
-		//System.out.println(allOffsets);
-		
-		if(allOffsets==0)
-		{
-			return 0;
-		}	
-		
 		return value;
+	}
+	
+	public double getRelativeDistance(char firstChar, char secondChar)
+	{
+		return (getNominalDistance(firstChar, secondChar)/maxDistance);
 	}
 
 	public double getMaximumDistance()
 	{
-		// TODO Auto-generated method stub
 		double maior = 0;
 
 		for (int j = 0; j < altura; j++)
@@ -190,8 +185,6 @@ public class KeyboardLayout
 								if (maior < getNominalDistance(teclasMatrix[i][j], teclasMatrix[n][k]))
 								{
 									maior = getNominalDistance(teclasMatrix[i][j], teclasMatrix[n][k]);
-//									System.out.println(maior);
-//									System.out.println(" " + teclasMatrix[i][j] + " " + teclasMatrix[n][k]);
 								}
 							}
 						}

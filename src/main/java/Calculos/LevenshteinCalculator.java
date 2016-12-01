@@ -1,19 +1,32 @@
-package pm.SpellCheckerLeonardo;
+package Calculos;
+
+import Teclado.KeyboardLayout;
 
 public class LevenshteinCalculator implements IDistanceCalculator
 {
-	KeyboardLayout keyboardLayout;
-	
+	KeyboardLayout keyboardLayout = new KeyboardLayout();
 
 	private static double minimum(double a, double b, double c)
 	{
 		return Math.min(Math.min(a, b), c);
 	}
+	
+	public KeyboardLayout getKeyboardLayout()
+	{
+		return keyboardLayout;
+	}
 
 	public double distance(String s1, String s2)
 	{
 		CharSequence lhs = s1;
-		CharSequence rhs = s2;
+		CharSequence rhs = s2; 
+		
+		double multiplier;
+		
+		if(!keyboardLayout.isNeutro())
+			multiplier = 100;
+		else
+			multiplier = 1;
 		
 		double[][] distance = new double[lhs.length() + 1][rhs.length() + 1];
 
@@ -26,13 +39,9 @@ public class LevenshteinCalculator implements IDistanceCalculator
 			for (int j = 1; j <= rhs.length(); j++)
 				distance[i][j] = minimum(distance[i - 1][j] + keyboardLayout.getInsertDeleteDistance(), distance[i][j - 1] + keyboardLayout.getInsertDeleteDistance(),
 						distance[i - 1][j - 1] + ((lhs.charAt(i - 1) == rhs.charAt(j - 1)) ? 0 
-								: keyboardLayout.getNominalDistance(lhs.charAt(i - 1), rhs.charAt(j - 1))));
-				
-		return (distance[lhs.length()][rhs.length()])*100;
-	}
-
-	public LevenshteinCalculator()
-	{
+								: keyboardLayout.getRelativeDistance(lhs.charAt(i - 1), rhs.charAt(j - 1))));
+		
+		return ((distance[lhs.length()][rhs.length()]));
 
 	}
 
@@ -41,9 +50,4 @@ public class LevenshteinCalculator implements IDistanceCalculator
 		keyboardLayout = kl;
 	}
 
-//	public int distance(String word1, String word2)
-//	{
-//		return 0;
-//
-//	}
 }

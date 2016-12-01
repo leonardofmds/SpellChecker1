@@ -1,4 +1,6 @@
-package pm.SpellCheckerLeonardo;
+package Calculos;
+
+import Teclado.KeyboardLayout;
 
 public class DemerauLevenshteinCalculator implements IDistanceCalculator
 {
@@ -12,6 +14,12 @@ public class DemerauLevenshteinCalculator implements IDistanceCalculator
 	{
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public KeyboardLayout getKeyboardLayout()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
