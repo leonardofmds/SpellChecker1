@@ -44,23 +44,23 @@ public class TestSpellChecker
 		IDistanceCalculator calculator = new LevenshteinCalculator(layout);
 		BurkhardKellerTree tree = new DictionaryReader().loadFromFile("dictionary_pt-br.zip", calculator);
 		
-//		BurkhardKellerTreeSearchResult result1 = tree.search("casa", 1, 10);
-//
-//		checkNeutro(result1, "casa", 0);
-//		checkNeutro(result1, "asa", 1.0);
-//		checkNeutro(result1, "cas", 1.0);
-//		checkNeutro(result1, "casar", 1.0);
-//		checkNeutro(result1, "casal", 1.0);
-//		checkNeutro(result1, "causa", 1.0);
-//		checkNeutro(result1, "casba", 1.0);
-//		checkNeutro(result1, "casca", 1.0);
-//		checkNeutro(result1, "casta", 1.0);
-//		checkNeutro(result1, "caca", 1.0);
+		BurkhardKellerTreeSearchResult result1 = tree.search("casa", 1, 10);
+
+		checkNeutro(result1, "casa", 0);
+		checkNeutro(result1, "asa", 1.0);
+		checkNeutro(result1, "cas", 1.0);
+		checkNeutro(result1, "casar", 1.0);
+		checkNeutro(result1, "casal", 1.0);
+		checkNeutro(result1, "causa", 1.0);
+		checkNeutro(result1, "casba", 1.0);
+		checkNeutro(result1, "casca", 1.0);
+		checkNeutro(result1, "casta", 1.0);
+		checkNeutro(result1, "caca", 1.0);
 //	
-////		check(result1, 0, "casa", 0);
-////		check(result1, 1, "asa", 1.0);
-////		check(result1, 2, "cas", 1.0);
-////		check(result1, 3, "casar", 1.0);
+		check(result1, 0, "casa", 0);
+		check(result1, 1, "asa", 1.0);
+		check(result1, 2, "cas", 1.0);
+//		check(result1, 3, "casar", 1.0);
 ////		check(result1, 4, "casal", 1.0);
 ////		check(result1, 5, "causa", 1.0);
 ////		check(result1, 6, "casba", 1.0);
@@ -69,37 +69,37 @@ public class TestSpellChecker
 ////		check(result1, 9, "caca", 1.0);
 		
 		
-//		BurkhardKellerTreeSearchResult result2 = tree.search("cervega", 2, 10);
-//		checkNeutro(result2, "cerveja", 1.0);
-//		checkNeutro(result2, "cereja", 2.0);
-//		checkNeutro(result2, "corveta", 2.0);
-//		checkNeutro(result2, "corveia", 2.0);
-//		checkNeutro(result2, "certeza", 2.0);		
+		BurkhardKellerTreeSearchResult result2 = tree.search("cervega", 2, 10);
+		checkNeutro(result2, "cerveja", 1.0);
+		checkNeutro(result2, "cereja", 2.0);
+		checkNeutro(result2, "corveta", 2.0);
+		checkNeutro(result2, "corveia", 2.0);
+		checkNeutro(result2, "certeza", 2.0);		
 //		
-////		BurkhardKellerTreeSearchResult result2 = tree.search("cervega", 2, 10);
-////		check(result2, 0, "cerveja", 1.0);
-////		check(result2, 1, "cereja", 2.0);
-////		check(result2, 2, "corveta", 2.0);
-////		check(result2, 3, "corveia", 2.0);
-////		check(result2, 4, "certeza", 2.0);
+		BurkhardKellerTreeSearchResult result7 = tree.search("cervega", 2, 10);
+		check(result7, 0, "cerveja", 1.0);
+		check(result2, 1, "cereja", 2.0);
+		check(result2, 2, "corveta", 2.0);
+		check(result2, 3, "corveia", 2.0);
+		check(result2, 4, "certeza", 2.0);
 		
-//		BurkhardKellerTreeSearchResult result3 = tree.search("aviea", 2, 10);
-//		checkNeutro(result3, "aia", 2.0);
-//		checkNeutro(result3, "ave", 2.0);
-//		checkNeutro(result3, "via", 2.0);
-//		checkNeutro(result3, "avioes", 2.0);
-//		checkNeutro(result3, "avisar", 2.0);
-//		checkNeutro(result3, "avivar", 2.0);
-//		checkNeutro(result3, "avidez", 2.0);
-//		checkNeutro(result3, "alinea", 2.0);
-//		checkNeutro(result3, "ravina", 2.0);
-//		checkNeutro(result3, "vies", 2.0);	
+		BurkhardKellerTreeSearchResult result3 = tree.search("aviea", 2, 10);
+		checkNeutro(result3, "aia", 2.0);
+		checkNeutro(result3, "ave", 2.0);
+		checkNeutro(result3, "via", 2.0);
+		checkNeutro(result3, "avioes", 2.0);
+		checkNeutro(result3, "avisar", 2.0);
+		checkNeutro(result3, "avivar", 2.0);
+		checkNeutro(result3, "avidez", 2.0);
+		checkNeutro(result3, "alinea", 2.0);
+		checkNeutro(result3, "ravina", 2.0);
+		checkNeutro(result3, "vies", 2.0);	
 		
 //		
-////		BurkhardKellerTreeSearchResult result3 = tree.search("aviea", 2, 10);
-////		check(result3, 0, "aia", 2.0);
-////		check(result3, 1, "ave", 2.0);
-////		check(result3, 2, "via", 2.0);
+		BurkhardKellerTreeSearchResult result8 = tree.search("aviea", 2, 10);
+		check(result8, 0, "aia", 2.0);
+		check(result8, 1, "ave", 2.0);
+		check(result3, 2, "via", 2.0);
 ////		check(result3, 3, "avioes", 2.0);
 ////		check(result3, 4, "avisar", 2.0);
 ////		check(result3, 5, "avivar", 2.0);
