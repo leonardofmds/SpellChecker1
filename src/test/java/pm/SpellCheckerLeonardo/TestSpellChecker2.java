@@ -107,10 +107,7 @@ public class TestSpellChecker2 {
 		assertEquals(0.34, calculator.distance("aviea", "agora"), 0.01);
 		assertEquals(0.35, calculator.distance("aviea", "aries"), 0.01);
 		assertEquals(0.36, calculator.distance("aviea", "aves"), 0.01);
-		//assertEquals(0.36, calculator.distance("aviea", "vira"), 0.01);
-		//assertEquals(0.36, calculator.distance("aviea", "vies"), 0.01);
 		assertEquals(0.36, calculator.distance("aviea", "avioes"), 0.01);
-	    //assertEquals(0.37, calculator.distance("aviea", "vida"), 0.01);
 		assertEquals(0.37, calculator.distance("aviea", "avisar"), 0.01);
 
 	}
@@ -134,7 +131,6 @@ public class TestSpellChecker2 {
 		assertEquals(0.22, calculator.distance("casa", "tosa"), 0.01);
 		
 		
-		//assertEquals(0.26, calculator.distance("cervega", "tosa"), 0.01);
 		assertEquals(0.35, calculator.distance("cervega", "corveia"), 0.01);
 		assertEquals(0.37, calculator.distance("cervega", "corneta"), 0.01);
 		assertEquals(0.44, calculator.distance("cervega", "corrego"), 0.01);

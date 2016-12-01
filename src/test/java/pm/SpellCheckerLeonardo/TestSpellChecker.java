@@ -194,7 +194,6 @@ public class TestSpellChecker
 		check(result, 3, "cara", 0.20);
 		check(result, 4, "fada", 0.23);
 		check(result, 5, "vaza", 0.23);
-//		check(result, 6, "asa", 0.25);
 		check(result, 6, "cas", 0.25);
 		check(result, 11, "casal", 0.25);
 		check(result, 12, "casar", 0.25);
@@ -217,10 +216,7 @@ public class TestSpellChecker
 		check(result3, 2, "afora", 0.34);
 		check(result3, 3, "aries", 0.35);
 		check(result3, 4, "aves", 0.36);
-//		check(result3, 5, "vira", 0.36);
-//		check(result3, 6, "vies", 0.36);
 		check(result3, 5, "avioes", 0.36);
-//		check(result3, 8, "vida", 0.37);
 		check(result3, 7, "avisar", 0.37);
 	}
 	
@@ -238,7 +234,6 @@ public class TestSpellChecker
 		check(result, 3, "cara", 0.20);
 		check(result, 4, "fada", 0.23);
 		check(result, 5, "vaza", 0.23);
-//		check(result, 6, "asa", 0.25);
 		check(result, 6, "cas", 0.25);
 		check(result, 7, "casba", 0.25);
 		check(result, 8, "casca", 0.25);
@@ -258,7 +253,6 @@ public class TestSpellChecker
 		
 		BurkhardKellerTreeSearchResult result3 = tree.search("aviea", 2, 10);
 		check(result3, 0, "acida", 0.23);
-//		check(result3, 1, "aveia", 0.25);
 		check(result3, 1, "agora", 0.34);
 		check(result3, 2, "afora", 0.34);
 		check(result3, 3, "aries", 0.35);
@@ -267,11 +261,7 @@ public class TestSpellChecker
 		check(result3, 6, "avidez", 0.37);
 		check(result3, 7, "avisar", 0.37);
 		check(result3, 8, "alea", 0.45);
-		check(result3, 9, "AURA", 0.47);		
-//		check(result3, 6, "vira", 0.36);
-//		check(result3, 7, "vies", 0.36);
-//		check(result3, 8, "avioes", 0.36);
-//		check(result3, 9, "vida", 0.37);
+		check(result3, 9, "aura", 0.47);		
 	}
 	
 	@Test
@@ -292,8 +282,6 @@ public class TestSpellChecker
 		check(result, 7, "tala", 0.22);
 		check(result, 8, "cano", 0.22);
 		check(result, 9, "calo", 0.22);
-//		check(result, 9, "tosa", 0.22);
-//		check(result, 9, "tala", 0.22);
 		
 		BurkhardKellerTreeSearchResult result2 = tree.search("cervega", 2, 10);
 		check(result2, 0, "corveta", 0.26);
@@ -304,8 +292,8 @@ public class TestSpellChecker
 		check(result2, 5, "cornea", 0.47);
 		check(result2, 6, "nervura", 0.48);
 		check(result2, 7, "cerveja", 0.49);
-//		check(result2, 8, "centena", 0.51);
-//		check(result2, 9, "ternura", 0.55);
+		check(result2, 8, "centena", 0.51);
+		check(result2, 9, "fervura", 0.55);
 	}
 
 
