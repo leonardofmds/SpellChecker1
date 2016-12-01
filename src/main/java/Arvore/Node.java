@@ -19,17 +19,32 @@ public class Node
 	{
 		this.palavra = palavra;
 	}
-
+	/**
+	 * Retorna o Node filho que se encontra na distancia
+	 * @param distancia: Posicao na hashmap onde se encontra o filho 
+	 * @return Node filho na posição distancia
+	 */
 	public Node filhosNumaDistancia(int distancia)
 	{
 		return filhos.get(distancia);
 	}
-
+	/**
+	 * Adiciona um Node à hashmap de filhos na posicao passada
+	 * @param posicao posição onde irá ser inserido Node
+	 * @param noFilho Node a ser inserido
+	 */
 	public void adicionaNoFilho(int posicao, Node noFilho)
 	{
 		filhos.put(posicao, noFilho);
 	}
-
+	
+	/**
+	 * Retorna uma lista de PalavraDistancia
+	 * @param no Palavra a ser comparada
+	 * @param distanciaMaxima Distancia máxima entre a palavra a ser comparada e as palavras do dicionário.
+	 * @param calculator Tipo de cálculo que será realizado, Levenshtein ou Damerau-Leveinshtein
+	 * @return
+	 */
 	public List<PalavraDistancia> busca(String no, int distanciaMaxima, IDistanceCalculator calculator)
 	{
 		ArrayList<PalavraDistancia> palavrasCompativeiss = new ArrayList<PalavraDistancia>();
@@ -68,50 +83,20 @@ public class Node
 
 		return palavrasCompativeiss;
 	}
-
-	public List<String> buscaStr(String no, int distanciaMaxima, IDistanceCalculator calculator)
-	{
-		// ArrayList<PalavraDistancia> palavrasCompativeiss = new
-		// ArrayList<PalavraDistancia>();
-		List<String> palavrasCompativeis = new ArrayList<String>();
-		int distanciaLevenshtein = (int) calculator.distance(palavra, no);
-
-		if (distanciaLevenshtein <= distanciaMaxima)
-		{
-			palavrasCompativeis.add(palavra);
-
-			// palavrasCompativeiss.add(new PalavraDistancia(no,
-			// distanciaMaxima-distanciaLevenshtein));
-		}
-
-		if (filhos.size() == 0)
-		{
-			return palavrasCompativeis;
-			// return palavrasCompativeiss;
-		}
-
-		for (int i = Math.max(1, distanciaLevenshtein - distanciaMaxima); i <= distanciaLevenshtein
-				+ distanciaMaxima; i++)
-		{
-
-			Node filho = filhos.get(i);
-			if (filho != null)
-			{
-				palavrasCompativeis.addAll(filho.buscaStr(no, distanciaMaxima, calculator));
-				// palavrasCompativeiss.addAll(filho.busca(no,
-				// distanciaMaxima,calculator));
-			}
-		}
-
-		return palavrasCompativeis;
-
-	}
-
+	/**
+	 * Testa se a palavra do nó é a mesma que a palavra de outro nó passado no parâmetro
+	 * @param outroNo
+	 * @return 
+	 */
 	public boolean equals(Node outroNo)
 	{
 		return palavra.equals(outroNo.palavra);
 	}
-
+	
+	/**
+	 * Retorna a palavra do no
+	 * @return
+	 */
 	public String getPalavra()
 	{
 		return palavra;

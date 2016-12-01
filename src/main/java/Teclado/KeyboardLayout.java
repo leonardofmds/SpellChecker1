@@ -23,13 +23,19 @@ public class KeyboardLayout
 	{
 		lines = new ArrayList<Line>();
 	}
-	
+	/**
+	 * Retorna falso se o KeyboardLayout não é neutro
+	 * @return
+	 */
 	public boolean isNeutro()
 	{
 		return false;
 	}
 	/**
 	 * prepara uma matriz que representa a disposição das teclas de um teclado e cada uma de suas letras
+	 */
+	/**
+	 * Instancia e preenche uma matriz que represente o teclado, suas teclas e coordenadas.
 	 */
 	public void prepareKeysMatrix()
 	{
@@ -58,32 +64,50 @@ public class KeyboardLayout
 		}
 
 	}
+	/**
+	 * Executa a função que instancia e preenche a matriz de teclado e a função que calcula a distância máxima do teclado.
+	 */
 	public void prepareDistances()
 	{
 		prepareKeysMatrix();
 		maxDistance = getMaximumDistance();
 	}
-	
+	/**
+	 * Retorna modelo do teclado
+	 * @return
+	 */
 	public String getModel()
 	{
 		return model;
 	}
-
+	/**
+	 * Seta o modelo do teclado
+	 * @param model
+	 */
 	public void setModel(String model)
 	{
 		this.model = model;
 	}
-
+	/**
+	 *Retorna uma lista com as linhas do teclado 
+	 * @return
+	 */
 	public ArrayList<Line> getLines()
 	{
 		return lines;
 	}
-
+	/**
+	 * Seta as linhas do teclado
+	 * @param lines Lista de objetos Line, que são as linhas do teclado
+	 */
 	public void setLines(ArrayList<Line> lines)
 	{
 		this.lines = lines;
 	}
-
+	/**
+	 * Adiciona uma linha no teclado
+	 * @param line
+	 */
 	public void addLine(Line line)
 	{
 		lines.add(line);
@@ -91,7 +115,7 @@ public class KeyboardLayout
 	/**
 	 * utilizado para ajudar no calculo da distância quando são comparadas linhas não vizinhas, somando os offsets de cada linha entre elas
 	 * @param n numero de linhas do teclado
-	 * @return
+	 * @return soma dos offsets entre as linhas
 	 */
 	public Double getAllOffSets(int n)
 	{
@@ -153,18 +177,28 @@ public class KeyboardLayout
 
 		return distancia;
 	}
-
+	/**
+	 * Retorna o custo da remoção ou inserção.
+	 */
 	public double getInsertDeleteDistance()
 	{
 		double value = 0.25;
 		return value;
 	}
-	
+	/**
+	 * Retorna o valor relativo da distancia de duas teclas pelo maximo do teclado neutro
+	 * @param firstChar Primeira tecla a ser calculada
+	 * @param secondChar Segunda tecla a ser calculada
+	 * @return
+	 */
 	public double getRelativeDistance(char firstChar, char secondChar)
 	{
 		return (getNominalDistance(firstChar, secondChar)/maxDistance);
 	}
-
+	/**
+	 * Retorna a maior distância entre as teclas dispostas no teclado
+	 * @return
+	 */
 	public double getMaximumDistance()
 	{
 		double maior = 0;

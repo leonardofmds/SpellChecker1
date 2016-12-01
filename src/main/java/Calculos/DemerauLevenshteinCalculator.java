@@ -6,12 +6,23 @@ public class DemerauLevenshteinCalculator implements IDistanceCalculator
 {
 
 	KeyboardLayout keyboardLayout = new KeyboardLayout();
-
+	/**
+	 * Calcula o valor mínimo entre 3 entradas
+	 * @param a
+	 * @param b
+	 * @param c
+	 * @return
+	 */
 	private static double minimum(double a, double b, double c)
 	{
 		return Math.min(Math.min(a, b), c);
 	}
-	
+	/**
+	 * Calcula o valor mínimo entre 2 entradas.
+	 * @param a
+	 * @param b
+	 * @return
+	 */
 	private static double minimum(double a, double b)
 	{
 		return Math.min(a, b);
@@ -21,7 +32,9 @@ public class DemerauLevenshteinCalculator implements IDistanceCalculator
 	{
 		this.keyboardLayout = kl;
 	}
-
+	/**
+	 * Calcula a distância de acordo com o algoritmo de Demerau-Leveinshtein
+	 */
 	public double distance(String s1, String s2)
 	{
 		CharSequence lhs = s1;
@@ -50,7 +63,9 @@ public class DemerauLevenshteinCalculator implements IDistanceCalculator
 		return ((distance[lhs.length()][rhs.length()]));
 
 	}
-
+	/**
+	 * Retorna o KeyboardLayout utilizado no calculo do custo das distancias.
+	 */
 	public KeyboardLayout getKeyboardLayout()
 	{
 		// TODO Auto-generated method stub

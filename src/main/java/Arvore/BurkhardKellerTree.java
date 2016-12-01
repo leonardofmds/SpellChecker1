@@ -17,20 +17,10 @@ public class BurkhardKellerTree
 	/**
 	 * Chama a funcao de busca do nó
 	 */
-	public List<PalavraDistancia> busca(String str, int distanciaMaximaPermitida, IDistanceCalculator calculator)
-	{
-//		 ArrayList<String> al = new ArrayList<String>();
-//		
-//		 al = (ArrayList<String>) raiz.buscaStr(str.toUpperCase(), distanciaMaximaPermitida, calculator);
-//		
-//		 for (String string : al)
-//		 {
-//		 System.out.println(string);
-//		 }
-		
-		
-		return raiz.busca(str.toUpperCase(), distanciaMaximaPermitida, calculator);
-	}
+//	public List<PalavraDistancia> busca(String str, int distanciaMaximaPermitida, IDistanceCalculator calculator)
+//	{
+//		return raiz.busca(str.toUpperCase(), distanciaMaximaPermitida, calculator);
+//	}
 
 	public BurkhardKellerTree(IDistanceCalculator calculator)
 	{
@@ -45,11 +35,17 @@ public class BurkhardKellerTree
 	{
 		return raiz;
 	}
-
+	/**
+	 * Chama a fução de busca do nó
+	 * @param string Palavra a ser buscada
+	 * @param i distância máxima da palavra buscada
+	 * @param j quantidade máxima de elementos da lista retornada
+	 * @return Lista de PalavraDistancia das palavras dentro da distância calculada por Leveinshtein ou Damerau-Levenshtein
+	 */
 	public BurkhardKellerTreeSearchResult search(String string, int i, int j)
 	{
 		ArrayList<PalavraDistancia> al = new ArrayList<PalavraDistancia>();
-		al = (ArrayList<PalavraDistancia>) busca(string, i, calculator);
+		al = (ArrayList<PalavraDistancia>) raiz.busca(string.toUpperCase(), i, calculator);
 
 		BurkhardKellerTreeSearchResult bktreeSearch = new BurkhardKellerTreeSearchResult(al);
 
